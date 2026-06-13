@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Werkstatt Abholsystem – Anmeldung</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    body { background: #f0f2f5; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .login-card { max-width: 400px; width: 100%; border: none; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+    .login-header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 16px 16px 0 0; padding: 2rem; text-align: center; color: white; }
+    .login-header i { font-size: 3rem; margin-bottom: .5rem; display: block; }
+  </style>
+</head>
+<body>
+  <div class="login-card card">
+    <div class="login-header">
+      <i class="bi bi-wrench-adjustable-circle"></i>
+      <h4 class="mb-1 fw-bold">Werkstatt Abholsystem</h4>
+      <small class="opacity-75">Mitarbeiter-Anmeldung</small>
+    </div>
+    <div class="card-body p-4">
+      <div id="error-msg" class="alert alert-danger d-none" role="alert"></div>
+      <form id="login-form">
+        <div class="mb-3">
+          <label for="username" class="form-label fw-semibold">Benutzername</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+            <input type="text" class="form-control" id="username" autocomplete="username" required autofocus>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="password" class="form-label fw-semibold">Passwort</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-lock"></i></span>
+            <input type="password" class="form-control" id="password" autocomplete="current-password" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100 fw-semibold py-2" id="submit-btn">
+          <i class="bi bi-box-arrow-in-right me-2"></i>Anmelden
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Falls bereits eingeloggt, weiterleiten
+    if (localStorage.getItem('token')) {
+      window.location.href = '/manager';
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const errEl = document.getElementById('error-msg');
+      errEl.classList.add('d-none');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Anmelden...';
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Anmeldung fehlgeschlagen');
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('username', data.username);
+        window.location.href = '/manager';
+      } catch (err) {
+        errEl.textContent = err.message;
+        errEl.classList.remove('d-none');
+        btn.disabled = false;
+        btn.innerHTML = '<i class="bi bi-box-arrow-in-right me-2"></i>Anmelden';
+      }
+    });
+  </script>
+</body>
+</html>

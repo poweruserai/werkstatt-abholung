@@ -1,0 +1,17 @@
+# Secrets – niemals ins Repository
+.env
+.env.*
+!.env.example
+
+# Datenbank & Kundendaten (DSGVO!)
+data/
+*.db
+*.db-wal
+*.db-shm
+
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+*.log

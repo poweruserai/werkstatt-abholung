@@ -1,0 +1,20 @@
+# Vereinfachte Variante – nur die App, ohne Nginx/SSL.
+# Ideal hinter einem bestehenden Reverse Proxy (Plesk, Traefik, Caddy)
+# oder zum lokalen Testen.
+#
+# Start:  docker compose -f docker-compose.simple.yml up -d --build
+# Setup:  docker compose -f docker-compose.simple.yml exec app node scripts/setup.js
+
+services:
+  app:
+    build: .
+    container_name: werkstatt-app
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - werkstatt-data:/data
+
+volumes:
+  werkstatt-data:

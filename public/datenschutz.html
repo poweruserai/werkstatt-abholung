@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    body { background: #f0f2f5; }
+    .content-card { max-width: 860px; margin: 0 auto; border: none; border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,.1); }
+    h2 { color: #1a1a2e; font-size: 1.3rem; margin-top: 2rem; border-bottom: 2px solid #e9ecef; padding-bottom: .5rem; }
+    h1 { color: #1a1a2e; }
+    .header-bar { background: linear-gradient(135deg,#1a1a2e,#16213e); border-radius: 12px 12px 0 0; }
+    .rechte-box { background: #e8f4fd; border-left: 4px solid #0d6efd; border-radius: 0 8px 8px 0; }
+    table { font-size: .9rem; }
+  </style>
+</head>
+<body class="py-4">
+  <div class="container px-3">
+    <div class="content-card card mb-4">
+      <div class="header-bar p-4 text-white">
+        <h1 class="h3 mb-1"><i class="bi bi-shield-check me-2"></i>Datenschutzerklärung</h1>
+        <p class="mb-0 opacity-75 small">Fahrzeugstatus-Abholsystem – gemäß DSGVO (EU) 2016/679</p>
+      </div>
+      <div class="card-body p-4">
+        <div id="werkstatt-info" class="alert alert-light border mb-4">
+          <div class="spinner-border spinner-border-sm me-2" role="status"></div>Lade Daten...
+        </div>
+
+        <h2>1. Verantwortlicher</h2>
+        <p>Verantwortlich für die Verarbeitung personenbezogener Daten im Sinne der DSGVO ist:</p>
+        <div id="verantwortlicher" class="ps-3 border-start border-3 mb-3"></div>
+        <p>Bei Fragen zum Datenschutz wenden Sie sich bitte an die oben genannte Kontaktadresse.</p>
+
+        <h2>2. Welche Daten werden verarbeitet?</h2>
+        <p>Im Rahmen des Fahrzeugstatus-Abholsystems werden ausschließlich folgende Daten verarbeitet:</p>
+        <div class="table-responsive">
+          <table class="table table-bordered table-sm">
+            <thead class="table-light">
+              <tr><th>Datenkategorie</th><th>Beispiel</th><th>Zweck</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fahrzeugkennzeichen</td>
+                <td>HH-AB 1234</td>
+                <td>Identifikation des Fahrzeugs im Auftragssystem</td>
+              </tr>
+              <tr>
+                <td>Fahrzeugbeschreibung</td>
+                <td>VW Golf 2019</td>
+                <td>Eindeutige Zuordnung des Auftrags</td>
+              </tr>
+              <tr>
+                <td>Bearbeitungsstatus</td>
+                <td>Fertig zum Abholen</td>
+                <td>Information des Kunden über den Bearbeitungsfortschritt</td>
+              </tr>
+              <tr>
+                <td>Datum der Annahme / Abholung</td>
+                <td>12.06.2026</td>
+                <td>Auftragsabwicklung und gesetzliche Aufbewahrungspflichten</td>
+              </tr>
+              <tr>
+                <td>E-Mail-Adresse <em>(optional)</em></td>
+                <td>kunde@example.de</td>
+                <td>Einmalige Benachrichtigung bei Fertigstellung (nur wenn angegeben)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-muted small"><i class="bi bi-info-circle me-1"></i>Es werden keine weiteren personenbezogenen Daten (Name, Adresse, Telefonnummer etc.) gespeichert.</p>
+
+        <h2>3. Rechtsgrundlage der Verarbeitung</h2>
+        <p>Die Verarbeitung der oben genannten Daten erfolgt auf Grundlage von:</p>
+        <ul>
+          <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> – Verarbeitung zur Erfüllung eines Vertrags (Reparaturauftrag / Werkstattvertrag)</li>
+          <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> – Einwilligung (für die optionale E-Mail-Benachrichtigung; Einwilligung kann jederzeit widerrufen werden)</li>
+        </ul>
+
+        <h2>4. Speicherdauer und automatische Löschung</h2>
+        <p>Alle Auftragsdaten werden nach Abholung des Fahrzeugs automatisch gelöscht:</p>
+        <div class="alert alert-info d-flex gap-2">
+          <i class="bi bi-clock-history fs-5 mt-1"></i>
+          <div>
+            Abgeholte Fahrzeuge werden nach <strong id="loeschfrist">30</strong> Tagen automatisch und unwiderruflich aus dem System entfernt.<br>
+            <small>Die E-Mail-Adresse wird mit dem Auftrag gelöscht und nicht für andere Zwecke verwendet.</small>
+          </div>
+        </div>
+
+        <h2>5. Empfänger der Daten / Weitergabe</h2>
+        <p>Ihre Daten werden <strong>nicht</strong> an Dritte weitergegeben, verkauft oder zu Werbezwecken genutzt.</p>
+        <p>Die Daten sind ausschließlich für autorisierte Mitarbeiter der Werkstatt zugänglich. Der Kunde kann über seinen persönlichen QR-Code-Link nur seinen eigenen Status einsehen – ohne Kenntnis des Kennzeichens oder anderer Daten.</p>
+
+        <h2>6. Hosting und technische Sicherheit</h2>
+        <p>Das System wird betrieben auf einem Server bei:</p>
+        <div class="ps-3 border-start border-3 mb-3">
+          <strong>IONOS SE</strong><br>
+          Elgendorfer Str. 57<br>
+          56410 Montabaur, Deutschland<br>
+          <a href="https://www.ionos.de/hilfe/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung Ionos</a>
+        </div>
+        <p>Ionos ist ein europäischer Anbieter. Alle Daten werden ausschließlich auf Servern in Deutschland verarbeitet und gespeichert. Es findet keine Übertragung in Drittländer statt.</p>
+        <p>Technische Schutzmaßnahmen:</p>
+        <ul>
+          <li>Verschlüsselte Übertragung via HTTPS/TLS</li>
+          <li>Datenbankzugriff nur mit Zugangsdaten</li>
+          <li>QR-Code-Links sind kryptografisch zufällig und nicht erratbar</li>
+          <li>Passwörter werden gehasht (bcrypt) gespeichert</li>
+        </ul>
+
+        <h2>7. Ihre Rechte als betroffene Person</h2>
+        <div class="rechte-box p-3 mb-3">
+          <p class="mb-2 fw-semibold">Gemäß DSGVO haben Sie folgende Rechte:</p>
+          <ul class="mb-0">
+            <li><strong>Auskunftsrecht (Art. 15 DSGVO)</strong> – Sie können Auskunft über die zu Ihrer Person gespeicherten Daten verlangen.</li>
+            <li><strong>Berichtigungsrecht (Art. 16 DSGVO)</strong> – Sie können die Berichtigung unrichtiger Daten verlangen.</li>
+            <li><strong>Löschungsrecht (Art. 17 DSGVO)</strong> – Sie können die unverzügliche Löschung Ihrer Daten verlangen.</li>
+            <li><strong>Einschränkungsrecht (Art. 18 DSGVO)</strong> – Sie können die Einschränkung der Verarbeitung verlangen.</li>
+            <li><strong>Widerrufsrecht</strong> – Eine erteilte Einwilligung (z.B. E-Mail-Benachrichtigung) kann jederzeit widerrufen werden.</li>
+          </ul>
+        </div>
+        <p>Zur Ausübung Ihrer Rechte wenden Sie sich bitte direkt an die Werkstatt (Kontakt siehe Abschnitt 1).</p>
+
+        <h2>8. Beschwerderecht bei der Aufsichtsbehörde</h2>
+        <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Die zuständige Behörde richtet sich nach dem Bundesland, in dem die Werkstatt ihren Sitz hat.</p>
+        <p>Eine Übersicht aller Aufsichtsbehörden finden Sie auf der Website des <a href="https://www.bfdi.bund.de/DE/Infothek/Anschriften_Links/anschriften_links-node.html" target="_blank" rel="noopener">Bundesbeauftragten für den Datenschutz (BfDI)</a>.</p>
+
+        <h2>9. Änderungen dieser Datenschutzerklärung</h2>
+        <p>Diese Datenschutzerklärung kann bei Bedarf aktualisiert werden, z.B. bei Änderungen des Systems oder der Rechtslage. Die aktuelle Version ist stets unter <code>/datenschutz</code> abrufbar.</p>
+
+        <hr>
+        <p class="text-muted small">Stand: <span id="stand-datum"></span></p>
+      </div>
+    </div>
+
+    <div class="text-center mb-4">
+      <a href="javascript:history.back()" class="btn btn-outline-secondary btn-sm">
+        <i class="bi bi-arrow-left me-1"></i>Zurück
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('stand-datum').textContent = new Date().toLocaleDateString('de-DE', { year: 'numeric', month: 'long' });
+
+    fetch('/api/config')
+      .then(r => r.json())
+      .then(cfg => {
+        document.title = `Datenschutzerklärung – ${cfg.werkstattName}`;
+        document.getElementById('loeschfrist').textContent = cfg.loeschungNachTagen;
+
+        const info = document.getElementById('werkstatt-info');
+        info.className = 'alert alert-secondary border mb-4';
+        info.innerHTML = `<strong><i class="bi bi-building me-1"></i>${cfg.werkstattName}</strong><br>
+          <small class="text-muted">Diese Datenschutzerklärung gilt für das Fahrzeugstatus-System von ${cfg.werkstattName}.</small>`;
+
+        const v = document.getElementById('verantwortlicher');
+        v.innerHTML = `
+          <strong>${cfg.werkstattName}</strong><br>
+          ${cfg.werkstattStrasse ? cfg.werkstattStrasse + '<br>' : ''}
+          ${cfg.werkstattOrt ? cfg.werkstattOrt + '<br>' : ''}
+          ${cfg.werkstattTelefon ? `<i class="bi bi-telephone me-1"></i>${cfg.werkstattTelefon}<br>` : ''}
+          ${cfg.werkstattEmail ? `<i class="bi bi-envelope me-1"></i><a href="mailto:${cfg.werkstattEmail}">${cfg.werkstattEmail}</a>` : ''}
+        `;
+      })
+      .catch(() => {
+        document.getElementById('werkstatt-info').innerHTML = '<i class="bi bi-exclamation-triangle me-2"></i>Kontaktdaten nicht verfügbar – bitte wenden Sie sich direkt an die Werkstatt.';
+      });
+  </script>
+</body>
+</html>

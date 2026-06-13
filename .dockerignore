@@ -1,0 +1,10 @@
+.env
+.env.*
+node_modules
+npm-debug.log
+data/
+*.db
+.git
+.gitignore
+DEPLOYMENT.md
+deploy.sh
